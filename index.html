@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="es" data-theme="rulan">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RULÁN — Rotulación, Vinil, Gran Formato</title>
+  <meta name="description" content="RULÁN Publicidad: rotulación vehicular, vinil textil, impresión a gran formato, invitaciones, tazas y más.">
+  <!-- Tipos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Iconos: Material Symbols (usa palabras como 'light_mode', 'dark_mode', 'arrow_upward') -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="assets/img/rulan-icon.png" type="image/png">
+  <style>
+    /* Tip pequeño para que Material Symbols se vean bien (opcional si ya lo pones en tu CSS global) */
+    .material-symbols-rounded{font-variation-settings:"FILL" 0, "wght" 700, "GRAD" 0, "opsz" 24; font-size:22px; line-height:1;}
+  </style>
+</head>
+<body class="dark-theme">
+
+  <!-- Progress global -->
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <!-- Header -->
+  <header class="hdr" id="top">
+    <div class="container bar">
+      <a class="brand" href="#top" aria-label="Inicio">
+        <img src="assets/img/rulan-logo.png" alt="RULÁN" height="28">
+      </a>
+      <nav class="nav" aria-label="principal">
+        <button class="burger" aria-label="Menú" aria-controls="menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul id="menu" class="menu">
+          <li><a href="#cases">Trabajos</a></li>
+          <li><a href="#ribbons">Capacidades</a></li>
+          <li><a href="#process">Cómo trabajamos</a></li>
+          <li><a href="#studio">Estudio</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- overlay de menú -->
+    <aside class="menu-overlay" aria-hidden="true">
+      <ul class="overlay-list">
+        <li><a href="#cases">Trabajos</a></li>
+        <li><a href="#ribbons">Capacidades</a></li>
+        <li><a href="#process">Cómo trabajamos</a></li>
+        <li><a href="#studio">Estudio</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+      <div class="overlay-meta">
+        <a href="mailto:rulanpublicidad@gmail.com">rulanpublicidad@gmail.com</a>
+        <a href="https://wa.me/5215555555555" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </aside>
+  </header>
+
+  <main>
+    <!-- HERO / STAGE -->
+    <section class="stage">
+      <div class="container stage-wrap">
+        <div class="stage-copy">
+          <h1 class="xxl">
+            RULÁN<br><span class="accent">Publicidad que se ve</span>
+          </h1>
+          <p class="lead">
+            Rotulación vehicular, vinil textil, impresión a gran formato, invitaciones, cuadros decorativos,
+            vinilo para interiores, sublimación, tarjetas de presentación, tazas personalizadas, volantes y más.
+          </p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#cases">Ver trabajos</a>
+            <a class="btn btn-ghost" href="https://wa.me/5215555555555" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+          </div>
+          <ul class="chips" aria-label="Servicios">
+            <li>Rotulación vehicular</li>
+            <li>Vinil textil</li>
+            <li>Gran formato</li>
+            <li>Vinilo decorativo</li>
+            <li>Tazas & Sublimación</li>
+          </ul>
+        </div>
+
+        <!-- Orb / póster hero -->
+        <figure class="orb reveal">
+          <img src="assets/img/rulan-cover.png" alt="Muestra de trabajos RULÁN" />
+        </figure>
+      </div>
+
+      <a class="scroll-hint" href="#cases" aria-label="Bajar">
+        <span>Explorar</span> ↓
+      </a>
+    </section>
+
+    <!-- TRABAJOS: CARRIL HORIZONTAL -->
+    <section id="cases" class="cases">
+      <div class="container">
+        <header class="sec-head">
+          <h2 class="h1">Trabajos recientes</h2>
+          <p class="muted">Desliza para ver — rotulación, vinil, impresos y decorativos.</p>
+        </header>
+
+        <div class="rail" role="list" tabindex="0" aria-label="Carril de trabajos">
+          <article class="case" role="listitem">
+            <a href="#" class="case-link" data-case="1" title="Rotulación vehicular">
+              <img src="assets/img/case-rotulacion.jpg" alt="Rotulación vehicular" class="poster">
+              <div class="meta"><h3>Rotulación vehicular</h3><span>Branding en flotillas</span></div>
+            </a>
+          </article>
+
+          <article class="case" role="listitem">
+            <a href="#" class="case-link" data-case="2" title="Vinil textil">
+              <img src="assets/img/case-vinil-textil.jpg" alt="Vinil textil" class="poster">
+              <div class="meta"><h3>Vinil textil</h3><span>Uniformes & merch</span></div>
+            </a>
+          </article>
+
+          <article class="case" role="listitem">
+            <a href="#" class="case-link" data-case="3" title="Gran formato">
+              <img src="assets/img/case-gran-formato.jpg" alt="Impresión gran formato" class="poster">
+              <div class="meta"><h3>Gran formato</h3><span>Lonas & banners</span></div>
+            </a>
+          </article>
+
+          <article class="case" role="listitem">
+            <a href="#" class="case-link" data-case="4" title="Invitaciones y papelería">
+              <img src="assets/img/case-invitaciones.jpg" alt="Invitaciones y papelería" class="poster">
+              <div class="meta"><h3>Invitaciones</h3><span>Eventos & boda</span></div>
+            </a>
+          </article>
+
+          <article class="case" role="listitem">
+            <a href="#" class="case-link" data-case="5" title="Tazas y sublimación">
+              <img src="assets/img/case-tazas.jpg" alt="Tazas personalizadas" class="poster">
+              <div class="meta"><h3>Tazas</h3><span>Sublimación HD</span></div>
+            </a>
+          </article>
+        </div>
+
+        <div class="rail-ctrl">
+          <button class="rail-prev" aria-label="Anterior">←</button>
+          <button class="rail-next" aria-label="Siguiente">→</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIBBONS DE CAPACIDADES -->
+    <section id="ribbons" class="ribbons" aria-label="Capacidades">
+      <div class="ribbon r1">
+        <div class="container">
+          <strong>Rotulación</strong> · Vehículos · Cristales · Señalética
+        </div>
+      </div>
+      <div class="ribbon r2">
+        <div class="container">
+          <strong>Vinil</strong> · Textil · Decorativo · Interiores
+        </div>
+      </div>
+      <div class="ribbon r3">
+        <div class="container">
+          <strong>Impresos</strong> · Gran Formato · Volantes · Tarjetas
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO (sin corporativismos) -->
+    <section id="process" class="process">
+      <div class="container">
+        <header class="sec-head">
+          <h2 class="h1">Así trabajamos</h2>
+          <p class="muted">Rápido, claro y sin enredos.</p>
+        </header>
+
+        <ol class="stepper" role="list">
+          <li class="step reveal">
+            <div class="badge">01</div>
+            <div class="copy">
+              <h3>Cuéntame qué necesitas</h3>
+              <p>Medidas, cantidad, colores y dónde se instala o entrega.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <div class="badge">02</div>
+            <div class="copy">
+              <h3>Arte listo o lo diseñamos</h3>
+              <p>Traes tu archivo o lo resolvemos aquí para imprimir/recortar.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <div class="badge">03</div>
+            <div class="copy">
+              <h3>Producción</h3>
+              <p>Impresión, corte y acabados limpios. Si aplica, instalamos.</p>
+            </div>
+          </li>
+          <li class="step reveal">
+            <div class="badge">04</div>
+            <div class="copy">
+              <h3>Entrega</h3>
+              <p>Tiempo real y piezas listas para usarse.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- STUDIO -->
+    <section id="studio" class="studio">
+      <div class="container studio-grid">
+        <figure class="studio-brand reveal">
+          <img src="assets/img/rulan-avatar.jpg" alt="RULÁN estudio" />
+        </figure>
+        <div class="studio-copy">
+          <h2 class="h1">Estudio RULÁN</h2>
+          <p>Desde Azcapo para toda CDMX. Somos piquis en el acabado: bordes rectos, color chido y entrega cuando se promete.</p>
+          <ul class="bullets">
+            <li>Rotulación e instalación profesional</li>
+            <li>Impresión nítida y materiales duraderos</li>
+            <li>Atención directa por WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contact" class="contact">
+      <div class="container center">
+        <h2 class="h1">¿Armamos algo hoy?</h2>
+        <p class="lead">Mándame medidas/fotos y te paso cotización en corto.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="mailto:rulanpublicidad@gmail.com">rulanpublicidad@gmail.com</a>
+          <a class="btn btn-ghost" href="https://wa.me/5215555555555" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ftr">
+    <div class="container foot">
+      <small>© <span id="y"></span> RULÁN. Hecho en Azcapo con calidad.</small>
+      <a class="top" href="#top" aria-label="Subir">↑</a>
+    </div>
+  </footer>
+
+  <!-- Botón flotante Back to Top -->
+  <button id="backToTop" class="back-to-top" aria-label="Volver arriba">
+    <span class="material-symbols-rounded" aria-hidden="true">arrow_upward</span>
+  </button>
+
+  <!-- Botón flotante: switch de tema (sol/luna) con Material Symbols -->
+  <button id="themeToggle"
+          class="theme-toggle"
+          aria-label="Cambiar tema"
+          aria-pressed="false"
+          title="Cambiar tema">
+    <span class="material-symbols-rounded icon icon-sun" aria-hidden="true">light_mode</span>
+    <span class="material-symbols-rounded icon icon-moon" aria-hidden="true">dark_mode</span>
+  </button>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

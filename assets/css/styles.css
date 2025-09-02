@@ -1,0 +1,446 @@
+/* ==================================================
+   RULÁN — OnePage Creativa/Portafolio (Brand Dark-Elegant)
+   Paleta base: morado profundo · magenta · cian
+   Look: sofisticado, alto contraste, sin colores chillones.
+================================================== */
+
+/* ---- Tokens ---- */
+:root{
+  /* Base “noir” elegante (morado muy oscuro) */
+  --bg:#1b1430;        /* fondo principal */
+  --bg-2:#231b3f;      /* tarjetas / secciones alternas */
+  --fg:#eceaf6;        /* texto principal (marfil frío) */
+  --muted:#b8b9c8;     /* texto secundario */
+  --line:#322a50;      /* bordes sutiles */
+
+  /* Marca */
+  --purple:#6b2bd9;    /* morado institucional */
+  --magenta:#ff3d81;   /* acento */
+  --cyan:#00d1ff;      /* acento */
+
+  /* Gradientes y acentos (suaves, no neón) */
+  --grad-ui: linear-gradient(90deg, #74e0ff, #ff6aa1);
+  --grad-hero:
+    radial-gradient(1100px 560px at 85% 15%, #00d1ff28, transparent 65%),
+    radial-gradient(900px 520px at 12% 85%, #ff3d8122, transparent 65%),
+    linear-gradient(180deg, #1f1840, #171136 60%, #1b1430 100%);
+
+  /* Dimensiones */
+  --radius:18px;
+  --shadow:0 14px 32px rgba(0,0,0,.35);
+  --step--1:clamp(12px,.85vw,14px);
+  --step-0: clamp(14px,1.0vw,16px);
+  --step-1: clamp(18px,1.8vw,22px);
+  --step-2: clamp(26px,3.2vw,36px);
+  --step-3: clamp(36px,6vw,72px);
+}
+
+/* ---- Reset y base ---- */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background:var(--bg); color:var(--fg); line-height:1.6;
+  -webkit-font-smoothing:antialiased;  -moz-osx-font-smoothing:grayscale;
+}
+img{max-width:100%; display:block}
+a{color:inherit; text-decoration:none}
+.container{width:min(1180px,92vw); margin-inline:auto}
+.center{text-align:center}
+
+/* ---- Barra de progreso ---- */
+.progress{position:fixed; top:0; left:0; width:100%; height:3px; z-index:99}
+.progress span{display:block; height:100%; width:0; background:var(--grad-ui)}
+
+/* ---- Header / Nav ---- */
+.hdr{
+  position:sticky; top:0; z-index:90;
+  background:linear-gradient(180deg, #1f1842ee, #191238ee);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
+}
+.bar{display:flex; align-items:center; justify-content:space-between; height:64px}
+.brand img{height:28px; filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+.menu{display:flex; list-style:none; gap:16px; margin:0; padding:0}
+.menu a{
+  padding:10px 12px; border-radius:12px; border:1px solid transparent;
+  color:#f4f3fb; opacity:.9; font-weight:600
+}
+.menu a:hover{border-color:#ffffff28; background:#ffffff12; opacity:1}
+
+/* Burger sólido y elegante */
+.burger{
+  display:none; border:0; padding:10px 12px; border-radius:999px;
+  background:linear-gradient(135deg, #2a2250, #2b2148);
+  border:1px solid #3a2f62; box-shadow:0 6px 16px rgba(0,0,0,.35);
+}
+.burger span{display:block; width:22px; height:2px; margin:4px 0; background:#fff; transition:.25s ease}
+
+@media (max-width:900px){
+  .burger{display:inline-grid; place-items:center}
+  .menu{display:none}
+}
+
+/* ---- Overlay menú ---- */
+.menu-overlay{
+  position:fixed; inset:0; z-index:95; display:grid;
+  grid-template-rows: 1fr auto; align-items:center; justify-items:center;
+  padding:24px;
+  background:
+    radial-gradient(1000px 600px at 15% 20%, #00d1ff26, transparent 60%),
+    radial-gradient(900px 600px at 85% 80%, #ff3d8120, transparent 60%),
+    #1a1436f0;
+  backdrop-filter: blur(12px);
+  opacity:0; pointer-events:none; transition:.3s ease;
+}
+.menu-overlay .overlay-list{list-style:none; margin:0; padding:0; display:grid; gap:14px; text-align:center}
+.menu-overlay .overlay-list a{
+  font-size:var(--step-2); padding:12px 20px; border-radius:999px;
+  background:#241c42; color:#f0eef8; border:1px solid #3a2f62;
+}
+.menu-overlay .overlay-list a:hover{background:#2a2250}
+.menu-overlay .overlay-meta{opacity:.85; margin-top:18px; display:flex; gap:16px; flex-wrap:wrap; justify-content:center}
+body.menu-open .menu-overlay{opacity:1; pointer-events:auto}
+body.menu-open .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+body.menu-open .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+body.menu-open .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* ---- Secciones ---- */
+.section{padding:clamp(56px,8vw,100px) 0}
+
+/* ---- Stage (Hero) ---- */
+.stage{position:relative; background:var(--grad-hero); padding:clamp(80px,12vw,160px) 0}
+.stage-wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:32px; align-items:center}
+.xxl{font-size:var(--step-3); line-height:1.04; letter-spacing:-.02em; margin:0 0 10px; font-weight:800}
+.lead{font-size:var(--step-1); color:#d9d7e6; margin:0 0 20px}
+.cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:8px}
+.btn{
+  display:inline-block; padding:12px 18px; border-radius:999px; font-weight:700;
+  border:1px solid #4a3c77; transition:.18s ease; color:#0f1222
+}
+.btn-primary{background:#fff; color:#2b1f57; border-color:transparent}
+.btn-ghost{background:transparent; color:#fff; border:1px solid #ffffff55}
+.btn:hover{transform:translateY(-1px)}
+.chips{display:flex; gap:8px; list-style:none; padding:0; margin:18px 0 0}
+.chips li{padding:6px 10px; border:1px solid #3a2f62; border-radius:999px; font-weight:600; color:#cbc9d9; background:#241c42}
+
+/* Orb de portada */
+.orb{position:relative; border-radius:24px; overflow:hidden; border:1px solid #3a2f62; box-shadow:var(--shadow); background:#1f1940}
+.orb::before{
+  content:""; position:absolute; inset:-30% -20% auto -20%;
+  height:80%; border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 50%, #00d1ff33, transparent 60%),
+    radial-gradient(circle at 60% 40%, #ff3d8126, transparent 60%);
+  filter: blur(26px);
+}
+.orb img{width:100%; height:100%; object-fit:cover; display:block}
+
+.scroll-hint{position:absolute; left:50%; bottom:18px; transform:translateX(-50%); font-weight:700; opacity:.85; color:#e7e5f3}
+.scroll-hint span{margin-right:8px}
+
+/* ---- Cases: carril horizontal ---- */
+.cases{padding:clamp(56px,8vw,100px) 0; background:linear-gradient(180deg, #1c1532, #231b3f)}
+.sec-head{display:flex; align-items:end; justify-content:space-between; gap:12px; margin-bottom:18px}
+.h1{font-size:clamp(26px,5vw,42px); margin:0}
+.muted{color:var(--muted)}
+
+.rail{
+  display:grid; grid-auto-flow:column; grid-auto-columns: clamp(260px, 38vw, 420px);
+  gap:14px; overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory;
+}
+.rail:focus{outline:2px solid #4a3c77; outline-offset:4px}
+.rail::-webkit-scrollbar{height:8px}
+.rail::-webkit-scrollbar-thumb{background:#ffffff22; border-radius:8px}
+.case{scroll-snap-align:start}
+.case-link{
+  display:block; background:#1f1940; border:1px solid #3a2f62;
+  border-radius:18px; overflow:hidden; box-shadow:0 12px 28px rgba(0,0,0,.35)
+}
+.poster{aspect-ratio:4/3; object-fit:cover; width:100%}
+.meta{display:flex; align-items:center; justify-content:space-between; padding:12px 14px; color:#e9e7f5}
+.meta h3{margin:0; font-size:1rem}
+.rail-ctrl{display:flex; gap:8px; justify-content:flex-end; margin-top:12px}
+.rail-ctrl button{
+  background:#241c42; color:#f6f5fb; border:1px solid #3a2f62; border-radius:12px; padding:8px 12px
+}
+.rail-ctrl button:hover{background:#2a2250}
+
+/* ---- Ribbons diagonales ---- */
+.ribbons{position:relative}
+.ribbon{
+  position:relative; overflow:hidden; border-block:1px solid #2f2750;
+  background:linear-gradient(90deg, #ffffff0a, transparent);
+  color:#eae8f6; text-transform:uppercase; letter-spacing:.08em; font-weight:800;
+}
+.ribbon .container{padding:12px 0; white-space:nowrap}
+.r1{background:linear-gradient(90deg, #6b2bd918, transparent)}
+.r2{background:linear-gradient(90deg, #ff3d8118, transparent)}
+.r3{background:linear-gradient(90deg, #00d1ff24, transparent)}
+
+/* ---- Proceso: stepper vertical ---- */
+.process{padding:clamp(56px,8vw,100px) 0; background:#1b1430}
+.stepper{list-style:none; margin:0; padding:0; display:grid; gap:12px}
+.step{
+  display:grid; grid-template-columns:56px 1fr; gap:14px; align-items:start;
+  background:#201a3a; border:1px solid #3a2f62; border-radius:16px; padding:16px
+}
+.badge{
+  width:42px; height:42px; display:grid; place-items:center; border-radius:50%;
+  background:var(--grad-ui); color:#0f1222; font-weight:900; box-shadow:0 6px 18px rgba(0,0,0,.35)
+}
+.copy h3{margin:0; color:#f0eef8}
+.copy p{margin:.25rem 0 0; color:#c9c7d8}
+
+/* ---- Studio ---- */
+.studio{padding:clamp(56px,8vw,100px) 0; background:linear-gradient(180deg, #231b3f, #1b1430)}
+.studio-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:24px; align-items:center}
+.studio-brand{border-radius:18px; overflow:hidden; border:1px solid #3a2f62; box-shadow:var(--shadow); background:#1f1940}
+.studio-brand img{width:100%; height:100%; object-fit:cover; display:block}
+.bullets{margin:12px 0 0; padding-left:18px}
+.bullets li{margin:6px 0; color:#d9d7e6}
+
+/* ---- Contacto ---- */
+.contact{padding:clamp(56px,8vw,100px) 0; background:#201a3a}
+.contact .lead{max-width:56ch; margin-inline:auto; color:#cfcde0}
+
+/* ---- Footer ---- */
+.ftr{border-top:1px solid #2f2750; padding:20px 0; background:linear-gradient(90deg, #201a3a, #1b1430); color:#eae8f6}
+.foot{display:flex; align-items:center; justify-content:space-between}
+.top{padding:8px 12px; border:1px solid #3a2f62; border-radius:10px; background:#241c42; color:#eae8f6}
+
+/* ---- Botón Back to Top ---- */
+.back-to-top{
+  position:fixed; right:18px; bottom:18px; z-index:98; width:46px; height:46px;
+  border-radius:50%; border:1px solid #3a2f62; background:#2a2250; color:#fff;
+  display:grid; place-items:center; font-weight:900; cursor:pointer;
+  box-shadow:0 12px 26px rgba(0,0,0,.35);
+  opacity:0; transform:translateY(10px); pointer-events:none;
+  transition:opacity .25s ease, transform .25s ease, background .2s ease, border-color .2s ease;
+}
+.back-to-top:hover{background:#352a66; border-color:#4a3c77}
+.back-to-top.is-visible{opacity:1; pointer-events:auto; transform:none}
+
+/* ---- Reveal util ---- */
+.reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease}
+.reveal.is-inview{opacity:1; transform:none}
+
+/* ---- Responsivo ---- */
+@media (max-width:900px){
+  .stage-wrap{grid-template-columns:1fr}
+  .studio-grid{grid-template-columns:1fr}
+}
+
+/* ---- Accesibilidad movimiento ---- */
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important; transition:none !important; scroll-behavior:auto !important}
+}
+
+
+/* ===========================================
+   Botón flotante: Switch de tema (sol/luna)
+=========================================== */
+.theme-toggle{
+  position:fixed;
+  right:18px;
+  bottom:76px; /* justo arriba del back-to-top */
+  z-index:98;
+  width:46px; height:46px;
+  border-radius:50%;
+  border:1px solid #3a2f62;
+  background:#241c42;
+  color:#fff;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  box-shadow:0 12px 26px rgba(0,0,0,.35);
+  transition:background .25s ease, border-color .25s ease, transform .25s ease, opacity .25s ease;
+}
+.theme-toggle:hover{
+  background:#352a66;
+  border-color:#4a3c77;
+  transform:translateY(-2px);
+}
+
+/* Ocultar/mostrar iconos según tema */
+.theme-toggle .icon{
+  position:absolute;
+  opacity:0;
+  transform:scale(.7);
+  transition:opacity .25s ease, transform .25s ease;
+}
+.theme-toggle .icon-sun{ color:#facc15 }   /* amarillo suave */
+.theme-toggle .icon-moon{ color:#a5b4fc }  /* lavanda suave */
+
+/* Estado activo */
+body.light-theme .theme-toggle .icon-sun{
+  opacity:1; transform:scale(1);
+}
+body.light-theme .theme-toggle .icon-moon{
+  opacity:0; transform:scale(.7);
+}
+
+body.dark-theme .theme-toggle .icon-moon{
+  opacity:1; transform:scale(1);
+}
+body.dark-theme .theme-toggle .icon-sun{
+  opacity:0; transform:scale(.7);
+}
+
+/* =========================================================
+   THEME OVERRIDES — activa el switch sol/luna ya mismo
+   Pegar al final del CSS existente
+========================================================= */
+
+/* 1) Tema oscuro explícito (usa tus tokens actuales como base) */
+body.dark-theme {
+  /* (opcional) Forzamos que el root use la paleta dark por si algo la cambia */
+  --bg:#1b1430;
+  --bg-2:#231b3f;
+  --fg:#eceaf6;
+  --muted:#b8b9c8;
+  --line:#322a50;
+
+  --purple:#6b2bd9;
+  --magenta:#ff3d81;
+  --cyan:#00d1ff;
+
+  --grad-ui: linear-gradient(90deg, #74e0ff, #ff6aa1);
+  --grad-hero:
+    radial-gradient(1100px 560px at 85% 15%, #00d1ff28, transparent 65%),
+    radial-gradient(900px 520px at 12% 85%, #ff3d8122, transparent 65%),
+    linear-gradient(180deg, #1f1840, #171136 60%, #1b1430 100%);
+}
+
+/* 2) Tema claro: solo cambia tokens y algunos fondos hardcodeados */
+body.light-theme {
+  /* Tokens claros (fresón, sin blancos chillones) */
+  --bg:#ecf1f9;       /* papel azulado suave */
+  --bg-2:#fcfdff;     /* tarjetas */
+  --fg:#1a2032;       /* texto principal */
+  --muted:#60677a;    /* texto secundario */
+  --line:#dbe2f1;     /* borde sutil */
+
+  --purple:#6b2bd9;
+  --magenta:#ff3d81;
+  --cyan:#00d1ff;
+
+  --grad-ui: linear-gradient(90deg, var(--cyan), var(--magenta));
+  --grad-hero:
+    radial-gradient(1100px 520px at 85% 15%, #00d1ff15, transparent 60%),
+    radial-gradient(900px 520px at 12% 85%, #ff3d800f, transparent 60%),
+    linear-gradient(180deg, #fdfefe, #edf2fb 55%, #ecf1f9);
+}
+
+/* 3) Zonas que estaban con colores fijos — damos versión light */
+
+/* Header */
+body.light-theme .hdr{
+  background:linear-gradient(0deg, #ffffffee, #ffffffee);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 6px 16px rgba(24,32,64,.08);
+}
+body.light-theme .menu a{
+  color:var(--fg);
+}
+body.light-theme .menu a:hover{
+  border-color:var(--line);
+  background:#eef3fb;
+}
+body.light-theme .burger{
+  background:linear-gradient(135deg, #e9f6ff, #fbe8f2);
+  border:1px solid #cfd6e6;
+  box-shadow:0 6px 14px rgba(24,32,64,.10);
+}
+body.light-theme .burger span{
+  background:#1a2032;
+}
+
+/* Overlay menú */
+body.light-theme .menu-overlay{
+  background:
+    radial-gradient(1000px 600px at 15% 20%, #00d1ff22, transparent 60%),
+    radial-gradient(900px 600px at 85% 80%, #ff3d8116, transparent 60%),
+    #fffffff0;
+  backdrop-filter: blur(12px);
+}
+body.light-theme .menu-overlay .overlay-list a{
+  background:#ffffff; color:var(--fg);
+  border:1px solid #e7ebf6;
+}
+body.light-theme .menu-overlay .overlay-list a:hover{
+  background:#f2f6ff; border-color:#d9e0f2;
+}
+
+/* Hero */
+body.light-theme .stage{ background:var(--grad-hero); }
+body.light-theme .lead{ color:var(--muted); }
+body.light-theme .btn-ghost{ background:#fcfdff; color:var(--fg); border:1px solid var(--line) }
+
+/* Chips y Orb */
+body.light-theme .chips li{
+  color:#2a2f3e; background:var(--bg-2); border:1px solid var(--line);
+}
+body.light-theme .orb{
+  background:#fff; border:1px solid #e6ebf7; box-shadow:0 10px 24px rgba(24,32,64,.10);
+}
+
+/* Sección Cases (fondo y tarjetas) */
+body.light-theme .cases{ background:#f6f8ff; }
+body.light-theme .case-link{
+  background:var(--bg-2); border:1px solid var(--line);
+  box-shadow:0 10px 22px rgba(24,32,64,.10);
+}
+body.light-theme .rail::-webkit-scrollbar-thumb{ background:#00000022; }
+
+/* Ribbons */
+body.light-theme .ribbon{
+  color:#2b2f44;
+  background:linear-gradient(90deg, #00000008, transparent);
+}
+body.light-theme .r1{ background: linear-gradient(90deg, #6b2bd90b, transparent) }
+body.light-theme .r2{ background: linear-gradient(90deg, #ff3d810b, transparent) }
+body.light-theme .r3{ background: linear-gradient(90deg, #00d1ff12, transparent) }
+
+/* Proceso */
+body.light-theme .process{ background:var(--bg); }
+body.light-theme .step{
+  background:var(--bg-2); border:1px solid var(--line);
+}
+body.light-theme .copy h3{ color:#202339 }
+body.light-theme .copy p{ color:var(--muted) }
+
+/* Studio / Contacto */
+body.light-theme .studio{
+  background:linear-gradient(180deg, #ecf1f9, #f6f8ff);
+}
+body.light-theme .studio-brand{
+  background:#fff; border:1px solid var(--line); box-shadow:0 10px 22px rgba(24,32,64,.10);
+}
+body.light-theme .contact{
+  background:#f6f8ff;
+}
+body.light-theme .contact .lead{ color:var(--fg) }
+
+/* Footer */
+body.light-theme .ftr{
+  background:#fff; color:var(--fg);
+  border-top:1px solid var(--line);
+}
+
+/* Botones flotantes */
+body.light-theme .back-to-top{
+  background:#ffffff; color:#1a2032; border-color:#dfe3f0;
+  box-shadow:0 10px 22px rgba(24,32,64,.12);
+}
+body.light-theme .back-to-top:hover{
+  background:#eef3fb; border-color:#cfd6e6;
+}
+body.light-theme .theme-toggle{
+  background:#ffffff; color:#1a2032; border-color:#dfe3f0;
+  box-shadow:0 10px 22px rgba(24,32,64,.12);
+}
+body.light-theme .theme-toggle:hover{
+  background:#eef3fb; border-color:#cfd6e6;
+}
